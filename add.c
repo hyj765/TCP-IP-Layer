@@ -21,37 +21,30 @@ int main(int argc,char *argv[])
 	sprintf(path,"/home/%s/%s",argv[1],argv[2]);
 	sprintf(path2,"/home/%s/%s",argv[1],argv[3]);
 	char  buffer[512];
-	one=fopen(path,"r");
+	one=fopen(path,"rb");
 	if(one == NULL)
 	{
 	printf("file not found...\n");
 	return 0;
 	}
-	two=fopen(path2,"r");
+	two=fopen(path2,"rb");
 	if(two == NULL)
 	{
 	printf("file2 not found...\n");
 	return 0;
 	}
 
-	fread(buffer,4,sizeof(buffer),one);
-	
-	data1 = strtol(buffer,NULL,16);
-	fread(buffer,4,sizeof(buffer),two);	
-	
-
-	data2 = strtol(buffer,NULL,16);
-
+	fread(&data1,4,1,one);
 	data1=ntohl(data1);
-	
+	fread(&data2,4,1,two);	
 	data2=ntohl(data2);
 	
 	sum = data1 + data2;
-       	printf("0x%x\n",data1);
+       	printf("%d(0x%x) +",data1);
 
-	printf("0x%x\n",data2);
+	printf("%d(0x%x) =",data2);
 
-	printf("0x%x\n",sum);
+	printf("%d(0x%x)\n",sum);
 
 
 
