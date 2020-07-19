@@ -20,7 +20,6 @@ int main(int argc,char *argv[])
 	char path2[200]; 
 	sprintf(path,"/home/%s/%s",argv[1],argv[2]);
 	sprintf(path2,"/home/%s/%s",argv[1],argv[3]);
-	char  buffer[512];
 	one=fopen(path,"rb");
 	if(one == NULL)
 	{
