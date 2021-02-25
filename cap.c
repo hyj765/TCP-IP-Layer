@@ -52,8 +52,9 @@ void EtherheaderPrint(const u_char *packet)
 	Eth_header *eh;
 	eh = (Eth_header*)packet;
 	printf("=======ethernet=======\n");
+	printf("Source MAC %02x:%02x:%02x:%02x:%02x:%02x\n",eh->shost[0],eh->shost[1],eh->shost[2],eh->shost[3],eh->shost[4],eh->shost[5]);
 	printf("Dst MAC %02x:%02x:%02x:%02x:%02x:%02x",eh->dhost[0],eh->dhost[1],eh->dhost[2],eh->dhost[3],eh->dhost[4],eh->dhost[5]);
-	printf("Dst MAC %02x:%02x:%02x:%02x:%02x:%02x\n",eh->shost[0],eh->shost[1],eh->shost[2],eh->shost[3],eh->shost[4],eh->shost[5]);
+	
 }
 iplen IPheaderPrint(const u_char *packet){
 	ip*ipheader;
